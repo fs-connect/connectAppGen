@@ -17,7 +17,7 @@ Use the command line to generate the Apps, using provided sample Applications (s
 
 - - - -
 
-## 2. Build & Run your Docker Container 
+## 2. Build & Run your Docker Container
 
 a. Build your own Container:
 `docker build -t connectGen .`
@@ -31,19 +31,20 @@ c. Open the Notebook: ConnectAppGen - and execute the cells.
 
 You will then be able to browse through the auto-generated applications accordingly.
 
-## 4. Sample Applications
+## 3. Sample Applications
 
  Three built-in sample Apps are provided part of this project:
+
 1. sample_app1.yaml => contains dummy XYZ integration, which you can simply tune to help you bootstrap your App.
-  1. This app uses "template" as Python Scripts template.  
+    a. This app uses "template" as Python Scripts template.  
 2. sample_app2.yaml => Minimal Slack App (working). Demonstrate the easiest "Hello World!" App by simply posting to Slack via Bot-id, on a default or custom slack channel.
-  1. this app uses "template2" as Python Scripts template.
+    a. this app uses "template2" as Python Scripts template.
 3. sample_app3.yaml => More complex - fully featured (workable) Cylance App clone.
-  1. this app uses "template3" as Python Scripts template.
+    a. this app uses "template3" as Python Scripts template.
 
 You can choose any of the above projects to bootstrap your new Connect App Project - simply by modifying the corresponding YAML file and generating the new configurations / Python scrips from the respective templates. We will be covering adding more templates in the next section.
 
-## 5. Selecting / Creating New Python Scripts Templates
+## 4. Selecting / Creating New Python Scripts Templates
 
 In the Settings of the YAML input file, you can define the template name, which will be extracted from default templates folder. You need to define:
   * (poll/resolve/test ).<templateName>.py
