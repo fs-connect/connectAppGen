@@ -19,15 +19,15 @@ Use the command line to generate the Apps, using provided sample Applications (s
 
 ## 2. Build & Run your Docker Container
 
-a. Build your own Container:
+1. Build your own Container:
 `docker build -t connectGen .`
 
-b. Simply Run :
+2. Simply Run :
   `docker run --name appGen -d -p 8888:8888 connectGen`
 
  Then browse to http://docker-machine-ip:8888/ (if local machine use: localhost:8888).
 
-c. Open the Notebook: ConnectAppGen - and execute the cells.
+3. Open the Notebook: ConnectAppGen - and execute the cells.
 
 You will then be able to browse through the auto-generated applications accordingly.
 
@@ -35,12 +35,9 @@ You will then be able to browse through the auto-generated applications accordin
 
  Three built-in sample Apps are provided part of this project:
 
-1. sample_app1.yaml => contains dummy XYZ integration, which you can simply tune to help you bootstrap your App.
-    a. This app uses "template" as Python Scripts template.  
-2. sample_app2.yaml => Minimal Slack App (working). Demonstrate the easiest "Hello World!" App by simply posting to Slack via Bot-id, on a default or custom slack channel.
-    a. this app uses "template2" as Python Scripts template.
-3. sample_app3.yaml => More complex - fully featured (workable) Cylance App clone.
-    a. this app uses "template3" as Python Scripts template.
+1. sample_app1.yaml => contains dummy XYZ integration, which you can simply tune to help you bootstrap your App. This app uses "template" as Python Scripts template.  
+2. sample_app2.yaml => Minimal Slack App (working). Demonstrate the easiest "Hello World!" App by simply posting to Slack via Bot-id, on a default or custom slack channel. This app uses "template2" as Python Scripts template.
+3. sample_app3.yaml => More complex - fully featured (workable) Cylance App clone. This app uses "template3" as Python Scripts template.
 
 You can choose any of the above projects to bootstrap your new Connect App Project - simply by modifying the corresponding YAML file and generating the new configurations / Python scrips from the respective templates. We will be covering adding more templates in the next section.
 
