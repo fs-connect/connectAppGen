@@ -13,6 +13,8 @@ Use the command line to generate the Apps, using provided sample Applications (s
 
  `python3 generator.py sample_app1.yaml`
 
+ A folder with name <appName>_<appVersion> will be automatically generated and (system+property).conf and Python scripts will be auto-generated based on your selected template. 
+
 - - - -
 
 ## 2. Build and your Docker Container & Run the ConnectAppGen Notebook
