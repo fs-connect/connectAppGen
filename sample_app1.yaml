@@ -1,0 +1,39 @@
+---
+name: XYZ
+version: 1.0.0
+author: Concert Masters
+testEnable: true
+panels: 
+    title: XYZ Connection
+    description: XYZ Connection
+    fields:
+        - URL
+        - Bot Name
+        - Default Channel
+properties: 
+    - property1
+    - property2
+    - property3 
+actions: 
+    - Post:
+        description: Post New Command
+        ip_required: false 
+        threshold_percentage: 1
+        params:
+            - Channel
+            - Command
+scripts: 
+    - Resolve: properties
+    - Test:
+        test: true
+    - Poll:
+        discovery: true
+    - Post:
+        action: Post
+    - Delete Post:
+        action: Post
+        is_cancel: true
+settings: 
+    logoFileName: logo.png
+    template: template
+    

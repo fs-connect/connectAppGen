@@ -1,0 +1,32 @@
+---
+name: Slack
+version: 1.0.1
+author: Concert Masters
+testEnable: true
+panels: 
+    title: Slack Connection
+    description: Slack Connection
+    fields:
+        - URL
+        - Bot Name
+        - Default Channel
+properties: 
+    -  
+actions: 
+    - Post:
+        description: Post a message
+        ip_required: false 
+        threshold_percentage: 1
+        params:
+            - Channel
+            - Message
+scripts: 
+    - Test:
+        test: true
+    - Post:
+        action: Post
+
+settings: 
+    logoFileName: logo.png
+    template: template2
+    

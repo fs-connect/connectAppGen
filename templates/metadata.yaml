@@ -1,0 +1,42 @@
+---
+main:
+ - name
+ - version
+ - author
+ - testEnable 
+ - panels
+ - properties 
+ - actions
+ - scripts
+
+panels:
+ - title
+ - description
+ - fields
+
+properties: 
+ - options
+ - resolvable 
+ - require_host_access
+ - inventory
+ - asset_portal
+ - track_change
+ - list
+ - overwrite
+ - type 
+ - subfields
+ 
+actions: 
+ - description
+ - ip_required
+ - threshold_percentage
+ - params
+ - undo: 
+     - label
+     - description 
+
+scripts: 
+ - action
+ - is_cancel
+ - test
+ - discovery
