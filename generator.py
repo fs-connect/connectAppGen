@@ -117,7 +117,7 @@ def generateSconf(fileName, output='system.conf', debug=False):
 
     try:
         # lower case the appName - to be used in default naming convention
-        appName = sconf['name'].lower()
+        appName = sconf['name'].lower().strip().replace(" ", "_").replace("-", "_")
 
         # print debug information
         if debug:
@@ -249,7 +249,7 @@ def generatePconf(fileName, output='property.conf', debug=False):
     try:
         pconf = {}
         pconf['name'] = meta_pconf['name']
-        appName = pconf['name'].lower()
+        appName = pconf['name'].lower().strip().replace(" ", "_").replace("-", "_")
 
         # Generate Default Group Name connect_appname_appname
         group = {}
@@ -445,7 +445,7 @@ def resolveVariables(fileName):
     if not connectApp:
         return None
 
-    appName = connectApp['name'].lower().replace(" ", "_").replace("-", "_")
+    appName = connectApp['name'].lower().strip().replace(" ", "_").replace("-", "_")
 
     folder = "%s_%s"%(appName, connectApp['version'])
 
