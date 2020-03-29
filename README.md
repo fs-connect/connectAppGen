@@ -44,9 +44,9 @@ You can choose any of the above projects to bootstrap your new Connect App Proje
 ## 4. Selecting / Creating New Python Scripts Templates
 
 In the Settings of the YAML input file, you can define the template name, which will be extracted from default templates folder. You need to define:
-  * (poll/resolve/test ).<templateName>.py
-  * action.<templateName>.py
-  * action.cancel.<templateName>.py
+  * (poll/resolve/test ).templateName.py
+  * action.templateName.py
+  * action.cancel.templateName.py
 
 Jinja2 is used to define how properties / parameters / actions parameters are used in the python templates to render the generated python code files for the App.
 
