@@ -20,10 +20,10 @@ Use the command line to generate the Apps, using provided sample Applications (s
 ## 2. Build & Run your Docker Container
 
 1. Build your own Container:
-`docker build -t connectGen .`
+`docker build -t connectgen .`
 
 2. Simply Run :
-  `docker run --name appGen -d -p 8888:8888 connectGen`
+  `docker run --name appGen -d -p 8888:8888 connectgen`
 
  Then browse to http://docker-machine-ip:8888/ (if local machine use: localhost:8888).
 
@@ -96,4 +96,4 @@ settings:
 ### Known Limitations
 
  1. Single Panel is supported in Yaml file (to be enhanced in the future)
- 2. Logos / Policies - directories structures not included yet . 
+ 2. Logos / Policies - directories structures not included yet .
