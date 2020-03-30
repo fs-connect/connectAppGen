@@ -13,7 +13,7 @@ Use the command line to generate the Apps, using provided sample Applications (s
 
  `python3 generator.py sample_app1.yaml`
 
- A folder with name appName_appVersion will be automatically created (otherwise overrides existing contents) and (system+property).conf and Python scripts will be auto-generated based on your selected template. Good Practice to keep proper versioning of your apps so new folders will be created for those new versions. 
+ A folder with name appName_appVersion will be automatically created (otherwise overrides existing contents) and (system+property).conf and Python scripts will be auto-generated based on your selected template. Good Practice to keep proper versioning of your apps so new folders will be created for those new versions.
 
 - - - -
 
@@ -50,6 +50,50 @@ In the Settings of the YAML input file, you can define the template name, which 
 
 Jinja2 is used to define how properties / parameters / actions parameters are used in the python templates to render the generated python code files for the App.
 
+## 5. YAML Connect App File Description
+
+```
+name: appName                     => Application Name (Mandatory)
+version: 1.0.0                    => Version (Mandatory)
+author: Concert Masters           => Author (Mandatory)
+testEnable: true                  => testEnable Settings (Mandatory)
+panels:                           => Only one Panel is allowed.
+    title: XYZ Connection         => Title to be shown on Top of the Panel
+    description: XYZ Connection   => Description
+    fields:                       => Panel fields (which will be imported later to Scripts)
+        - URL                     => example  
+        - Bot Name                
+        - Default Channel         
+properties:                       => Properties - with or without options. Please refer to eyeExtend Connect documentation.  
+    - property1                   => Property name
+    - property2
+    - property3
+actions:                          => List of Actions  
+    - Post:                       => Action Name (can contain spaces)
+        description: Post New Command => Description
+        ip_required: false        => Options
+        threshold_percentage: 1
+        params:                   => Actions Parameters which will be displayed in the Action dialog box.  
+            - Channel
+            - Command
+scripts:                          => Name of Scripts to be generated for this project
+    - Resolve: properties         => Resolve / test / Poll to be fixed if needed - you might remove them if not noeeded.
+    - Test:
+        test: true
+    - Poll:
+        discovery: true
+    - Post:                       => Script Action to be linked with one of the above actions
+        action: Post
+    - Delete Post:                => Script CancelAction to be linked with one of the above actions
+        action: Post
+        is_cancel: true           => important to identify its a Cancelation Script  
+settings:
+    logoFileName: logo.png        => Not used right now - combining other scripts to generate Logos  
+    template: templateX           => Template Name to be used for this Application.
+                                     script_type.templateX.py should exists in templates folder.
+```
+
 ### Known Limitations
 
  1. Single Panel is supported in Yaml file (to be enhanced in the future)
+ 2. Logos / Policies - directories structures not included yet . 
