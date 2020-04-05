@@ -5,7 +5,7 @@ MAINTAINER Hassan El Karhani <hkarhani@gmail.com>
 WORKDIR /notebooks
 
 ADD templates /notebooks/templates
-ADD generator.py /notebooks/
+ADD *.py /notebooks/
 ADD *.yaml /notebooks/
 ADD *.ipynb /notebooks/
 
