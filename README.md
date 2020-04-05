@@ -93,7 +93,14 @@ settings:
                                      script_type.templateX.py should exists in templates folder.
 ```
 
+### Revisions
+
+   - rev 1.0.0: eyeExtend Connect App Generator - YAML => (app_folder, property/system.conf files and Python Scripts)  
+   - rev 1.0.1: Merging connect-images-dir Script (https://github.com/fs-connect/connect-images-dir).
+                The script uses the generated property.conf to generate images folders structure + icons which could be then easily replaced afterwards.
+
+
+
 ### Known Limitations
 
  1. Single Panel is supported in Yaml file (to be enhanced in the future)
- 2. Logos / Policies - directories structures not included yet .
