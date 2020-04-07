@@ -3,7 +3,7 @@ Starterkit & Generator for eyeExtend Connect Apps.
 
 This Folder can be either used with your native python deployemnt (after installing requirements file), or better to spawn a docker Container with Jupyter Notebook - which will allow you to Generate and Edit your eyeExtend App via Jupyter Notebook.
 
-## 1. if you want to execute the scripts directly
+## 1. To execute the scripts directly
 
 Install the required modules:
 
