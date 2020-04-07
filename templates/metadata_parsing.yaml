@@ -1,0 +1,29 @@
+system_main:
+    - name
+    - version
+    - author 
+    - testEnable
+system_panel:
+    - title
+    - description
+actions:  
+    - description
+    - ip_required
+    - group
+    - threshold_percentage
+undoActions: 
+    - label 
+    - description 
+property: 
+    - resolvable
+    - require_host_access
+    - asset_portal
+    - list
+    - overwrite
+    - type
+propertyObject: 
+    - inventory
+    - track_change
+propertyLists: 
+    - subfields
+    - options
