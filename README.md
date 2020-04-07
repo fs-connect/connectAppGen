@@ -13,7 +13,13 @@ Use the command line to generate the Apps, using provided sample Applications (s
 
  `python3 generator.py sample_app1.yaml`
 
- A folder with name appName_appVersion will be automatically created (otherwise overrides existing contents) and (system+property).conf and Python scripts will be auto-generated based on your selected template. Good Practice to keep proper versioning of your apps so new folders will be created for those new versions.
+A folder with name appName_appVersion will be automatically created (otherwise overrides existing contents) and (system+property).conf and Python scripts will be auto-generated based on your selected template, including creation of folders. Good Practice to keep proper versioning of your apps so new folders will be created for those new versions.
+
+You will be able to extract the Model (Yaml) file from existing Connect Apps by running the following:
+
+`python3 getmodel.py \<App_Main_Folder\>`
+
+A Yaml file will be created based on "appName_model.yaml" with auto-incremental number if a file already exists with same name.
 
 - - - -
 
@@ -44,9 +50,9 @@ You can choose any of the above projects to bootstrap your new Connect App Proje
 ## 4. Selecting / Creating New Python Scripts Templates
 
 In the Settings of the YAML input file, you can define the template name, which will be extracted from default templates folder. You need to define:
-  * (poll/resolve/test ).templateName.py
-  * action.templateName.py
-  * action.cancel.templateName.py
+  * (poll/resolve/test).templateName.py
+  * action.templateName.py        => Same Action template will be applied to all Actions defined in the Model.
+  * action.cancel.templateName.py => Same Action Cancelation template will be applied to all undo actions defined in the Model.
 
 Jinja2 is used to define how properties / parameters / actions parameters are used in the python templates to render the generated python code files for the App.
 
@@ -58,8 +64,8 @@ version: 1.0.0                    => Version (Mandatory)
 author: Concert Masters           => Author (Mandatory)
 testEnable: true                  => testEnable Settings (Mandatory)
 panels:                           => Only one Panel is allowed.
-    title: XYZ Connection         => Title to be shown on Top of the Panel
-    description: XYZ Connection   => Description
+    title: appName Connection     => Title to be shown on Top of the Panel
+    description: appName Connection => Description
     fields:                       => Panel fields (which will be imported later to Scripts)
         - URL                     => example  
         - Bot Name                
@@ -98,9 +104,12 @@ settings:
    - rev 1.0.0: eyeExtend Connect App Generator - YAML => (app_folder, property/system.conf files and Python Scripts)  
    - rev 1.0.1: Merging connect-images-dir Script (https://github.com/fs-connect/connect-images-dir).
                 The script uses the generated property.conf to generate images folders structure + icons which could be then easily replaced afterwards.
+   - rev 1.0.2: Added getmodel.py Script - which reads existing Connect App Main folder -
+                (where system/property.conf file exists) and auto-generates the YAML model of the App.
 
 
 
 ### Known Limitations
 
- 1. Single Panel is supported in Yaml file (to be enhanced in the future)
+ 1. Single Panel is supported in Yaml file
+ 2. With getmodel.py - Panel Properties' attributes are discarded while creating the Yaml Model, and only certain Attributes with Main Properties are interpreted at this stage.   
