@@ -152,7 +152,7 @@ def generateSconf(fileName, output='system.conf', debug=False):
             field = {}
             field['display'] = key
             field['field ID'] = 'connect_%s_%s' %(appName, key.lower().replace(' ', '_'))
-            field['type'] = 'shortstring'
+            field['type'] = 'shortString'
             field['mandatory'] = 'true'
             field['add to column'] = 'true'
             if i == 0:
