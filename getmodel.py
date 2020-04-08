@@ -1,6 +1,7 @@
 import json
 import yaml 
 import os
+import sys
 from generator import load_metadata
 
 def getModel(appPath):
@@ -164,7 +165,7 @@ def getModel(appPath):
             yamlOutput = yaml.safe_dump(yConf, file, explicit_start=True, default_flow_style=False, \
                               sort_keys=True, indent=2 )
     
-    except: s
+    except: 
         print("Error while writing the model YAML file %s!"%yaml_file)
         return None
     

@@ -1,32 +1,26 @@
 ---
 name: Slack
-version: 1.0.1
-author: Concert Masters
+author: Gitesh Shah
+version: 1.0.0
 testEnable: true
-panels: 
-    title: Slack Connection
-    description: Slack Connection
-    fields:
-        - URL
-        - Bot Name
-        - Default Channel
-properties: 
-    -  
-actions: 
-    - Post:
-        description: Post a message
-        ip_required: false 
-        threshold_percentage: 1
-        params:
-            - Channel
-            - Message
-scripts: 
-    - Test:
-        test: true
-    - Post:
-        action: Post
-
-settings: 
-    logoFileName: logo.png
-    template: template2
-    
+panels:
+  description: Slack Workspace and Authentication
+  fields:
+  - Workspace name
+  - Workspace app oauth token
+  title: Slack Workspace Information
+actions:
+- Post action:
+    description: Post a message to Slack
+    group: notify
+    ip_required: false
+    params:
+    - Type
+    - Input channel
+    - Message
+    - Message type
+scripts:
+- Action:
+    action: Post action
+- Test:
+    test: true
