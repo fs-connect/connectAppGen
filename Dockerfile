@@ -9,6 +9,7 @@ ADD *.py /notebooks/
 ADD *.yaml /notebooks/
 ADD *.ipynb /notebooks/
 
+RUN apk add zlib-dev jpeg-dev
 RUN pip3 install -r requirements.txt
 RUN rm /notebooks/requirements.txt
 

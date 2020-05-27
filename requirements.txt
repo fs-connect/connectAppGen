@@ -1,3 +1,4 @@
 pyYaml
 Jinja2
 zipfile36
+Pillow==6.2.2
