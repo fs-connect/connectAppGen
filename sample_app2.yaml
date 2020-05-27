@@ -1,26 +1,66 @@
 ---
-name: Slack
-author: Gitesh Shah
+name: Cylance
 version: 1.0.0
+author: Concert Masters
 testEnable: true
 panels:
-  description: Slack Workspace and Authentication
-  fields:
-  - Workspace name
-  - Workspace app oauth token
-  title: Slack Workspace Information
+    title: Cylance Connection
+    description: Cylance Connection
+    fields:
+        - URL
+        - Tenant ID
+        - Application ID
+        - Application Secret
+properties:
+    - State:
+        options:
+            - Online
+            - Offline
+        resolvable: true
+        require_host_access: false
+        inventory: true
+        asset_portal: true
+        track_change: true
+    - Last Logged In User
+    - Mac Addresses:
+        list: true
+    - IP Addresses:
+        list: true
+        overwrite: true
+    - is Safe:
+        type: boolean
+    - ID
+    - Policy:
+        type: composite
+        inventory: true
+        subfields:
+            - ID
+            - Name
 actions:
-- Post action:
-    description: Post a message to Slack
-    group: notify
-    ip_required: false
-    params:
-    - Type
-    - Input channel
-    - Message
-    - Message type
+    - Add User:
+        description: Add New User
+        ip_required: false
+        threshold_percentage: 1
+        params:
+            - Email
+            - First name
+            - Last name
+        undo:
+            label: Cancel Cylance Add User
+            description: Remove Added User
 scripts:
-- Action:
-    action: Post action
-- Test:
-    test: true
+    - Resolve: properties
+    - Test:
+        test: true
+    - Poll:
+        discovery: true
+
+    - Add User:
+        action: Add User
+    - Delete User:
+        action: Add User
+        is_cancel: true
+
+settings:
+    logoFileName: logo.png
+    template: template3
