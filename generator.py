@@ -266,6 +266,7 @@ def generatePconf(fileName, output='property.conf', debug=False):
             if type(propName) == type(""):
                 prop = {}
                 prop['tag'] = "connect_%s_%s" %(appName, propName.lower().strip().replace(" ", "_"))
+                prop['label'] = "%s %s" %(pconf['name'], propName)
                 prop['description'] = "%s %s" %(pconf['name'], propName)
                 prop['type'] = 'string'
                 prop['group'] = pconf['groups'][0]['name']
