@@ -159,6 +159,7 @@ def generateSconf(fileName, output='system.conf', debug=False):
                 field['field ID'] = 'connect_%s_%s' %(appName, k.lower().replace(' ', '_'))
                 field['type'] = v
                 field['add to column'] = 'false'
+                field['mandatory'] = 'true'
                 field['show column'] = 'false'
                 field['identifier'] = 'true'
                 field['tooltip'] = k
