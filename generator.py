@@ -8,7 +8,7 @@ from connect_images_dir_create import generate_path
 
 # Global Variables used in this module
 TEMPLATES_FOLDER = 'templates'
-__version__ = '1.0.3" 
+__version__ = '1.0.3'
 
 def load_metadata(fileName = 'metadata.yaml'):
     """Loads metadata file fileName - default: <TEMPLATES_FOLDER>/metadata.yaml """
