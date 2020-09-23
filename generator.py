@@ -8,7 +8,7 @@ from connect_images_dir_create import generate_path
 
 # Global Variables used in this module
 TEMPLATES_FOLDER = 'templates'
-__version__ = '1.0.1" 
+__version__ = '1.0.3" 
 
 def load_metadata(fileName = 'metadata.yaml'):
     """Loads metadata file fileName - default: <TEMPLATES_FOLDER>/metadata.yaml """
@@ -151,7 +151,7 @@ def generateSconf(fileName, output='system.conf', debug=False):
         i=0
         for key in list(panels['fields']):
             field = {}
-            
+
             if type(key) == type({}):
                 k = list(key.keys())[0]
                 v = list(key.values())[0]
@@ -165,8 +165,8 @@ def generateSconf(fileName, output='system.conf', debug=False):
                 sconf['panels'][0]['fields'].append(field)
                 if debug:
                     print("debug: following field will be added to Panel fields: %s"%str(field))
-                
-            else: 
+
+            else:
                 field['display'] = key
                 field['field ID'] = 'connect_%s_%s' %(appName, key.lower().replace(' ', '_'))
                 field['type'] = 'shortString'
@@ -497,7 +497,7 @@ def resolveVariables(fileName):
             k = list(param.keys())[0]
             resolveVars['params'][k.lower().strip().replace(" ", "_")] = "connect_%s_%s" % \
                 (appName, k.lower().strip().replace(" ", "_"))
-            
+
 
     ## Extract actions_parameters to be used in python Jinja2 templates
     for action in connectApp['actions']:
