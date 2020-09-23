@@ -25,7 +25,10 @@ A Yaml file will be created based on "appName_model.yaml" with auto-incremental 
 
 ## 2. Build & Run your Docker Container
 
-1. Build your own Container:
+1. Build your own Container after cloning this repo:
+
+`git clone https://github.com/fs-connect/connectAppGen.git`
+
 `docker build -t connectgen .`
 
 2. Simply Run :
@@ -106,7 +109,7 @@ settings:
                 The script uses the generated property.conf to generate images folders structure + icons which could be then easily replaced afterwards.
    - rev 1.0.2: Added getmodel.py Script - which reads existing Connect App Main folder -
                 (where system/property.conf file exists) and auto-generates the YAML model of the App.
-   - rev 1.0.3: Added M3SP connectApp Development Notebook. Added Support to "encrypted" Panel field type. 
+   - rev 1.0.3: Added M3SP connectApp Development Notebook. Added Support to "encrypted" Panel field type.
 
 
 ### Known Limitations
