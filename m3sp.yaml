@@ -1,0 +1,34 @@
+---
+name: m3sp
+version: 1.0.0
+author: Demo SE
+testEnable: true
+panels: 
+    title: M3SP Connection
+    description: M3SP Connection
+    fields:
+        - URL
+        - Username
+        - Password: encrypted
+properties: 
+    - Department:
+        inventory: true
+    - Description
+actions: 
+    - send_data:
+        description: Send Info to the M3SP
+        ip_required: false 
+        threshold_percentage: 1
+        params:
+            - Malware Name
+            - Malware filetype
+scripts: 
+    - Resolve: properties
+    - Test:
+        test: true
+    - Send data:
+        action: send_data
+
+settings: 
+    logoFileName: logo.png
+    template: template

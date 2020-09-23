@@ -8,6 +8,7 @@ from connect_images_dir_create import generate_path
 
 # Global Variables used in this module
 TEMPLATES_FOLDER = 'templates'
+__version__ = '1.0.1" 
 
 def load_metadata(fileName = 'metadata.yaml'):
     """Loads metadata file fileName - default: <TEMPLATES_FOLDER>/metadata.yaml """
@@ -150,22 +151,38 @@ def generateSconf(fileName, output='system.conf', debug=False):
         i=0
         for key in list(panels['fields']):
             field = {}
-            field['display'] = key
-            field['field ID'] = 'connect_%s_%s' %(appName, key.lower().replace(' ', '_'))
-            field['type'] = 'shortString'
-            field['mandatory'] = 'true'
-            field['add to column'] = 'true'
-            if i == 0:
-                field['show column'] = 'true'
-                i+=1
-            else:
+            
+            if type(key) == type({}):
+                k = list(key.keys())[0]
+                v = list(key.values())[0]
+                field['display'] = k
+                field['field ID'] = 'connect_%s_%s' %(appName, k.lower().replace(' ', '_'))
+                field['type'] = v
+                field['add to column'] = 'false'
                 field['show column'] = 'false'
-            field['identifier'] = 'true'
-            field['tooltip'] = key
-            sconf['panels'][0]['fields'].append(field)
+                field['identifier'] = 'true'
+                field['tooltip'] = k
+                sconf['panels'][0]['fields'].append(field)
+                if debug:
+                    print("debug: following field will be added to Panel fields: %s"%str(field))
+                
+            else: 
+                field['display'] = key
+                field['field ID'] = 'connect_%s_%s' %(appName, key.lower().replace(' ', '_'))
+                field['type'] = 'shortString'
+                field['mandatory'] = 'true'
+                field['add to column'] = 'true'
+                if i == 0:
+                    field['show column'] = 'true'
+                    i+=1
+                else:
+                    field['show column'] = 'false'
+                field['identifier'] = 'true'
+                field['tooltip'] = key
+                sconf['panels'][0]['fields'].append(field)
 
-            if debug:
-                print("debug: following field will be added to Panel fields: %s"%str(field))
+                if debug:
+                    print("debug: following field will be added to Panel fields: %s"%str(field))
 
         # add certification validation
         sconf['panels'][0]['fields'].append({'certification validation': True})
@@ -349,7 +366,7 @@ def generatePconf(fileName, output='property.conf', debug=False):
                         prop[item] = []
                         for param in actionItem[actionName][item]:
                             element = {}
-                            element['name'] = "%s_%s" %(appName,param.lower().strip().replace(" ", "_") )
+                            element['name'] = "connect_%s_%s" %(appName,param.lower().strip().replace(" ", "_") )
                             element['label'] = param
                             element['description'] = "%s %s" %(appName, param)
                             element['type'] = 'string'
@@ -473,8 +490,14 @@ def resolveVariables(fileName):
                     (appName, prop.lower().strip().replace(" ", "_"))
 
     for param in connectApp['panels']['fields']:
-        resolveVars['params'][param.lower().strip().replace(" ", "_")] = "connect_%s_%s" % \
-            (appName, param.lower().strip().replace(" ", "_"))
+        if type(param) == type(""):
+            resolveVars['params'][param.lower().strip().replace(" ", "_")] = "connect_%s_%s" % \
+                (appName, param.lower().strip().replace(" ", "_"))
+        elif type(param) == type({}):
+            k = list(param.keys())[0]
+            resolveVars['params'][k.lower().strip().replace(" ", "_")] = "connect_%s_%s" % \
+                (appName, k.lower().strip().replace(" ", "_"))
+            
 
     ## Extract actions_parameters to be used in python Jinja2 templates
     for action in connectApp['actions']:
