@@ -110,6 +110,7 @@ settings:
    - rev 1.0.2: Added getmodel.py Script - which reads existing Connect App Main folder -
                 (where system/property.conf file exists) and auto-generates the YAML model of the App.
    - rev 1.0.3: Added M3SP connectApp Development Notebook. Added Support to "encrypted" Panel field type.
+   - rev 1.0.4: Added ConnectAppGen Form Notebook - Just Run All Cells upon loading to use the Web Form UI Elements to generate your app. 
 
 
 ### Known Limitations
