@@ -9,9 +9,8 @@ ADD *.py /notebooks/
 ADD *.yaml /notebooks/
 ADD *.ipynb /notebooks/
 
-RUN apk add zlib-dev jpeg-dev
 RUN pip install -r requirements.txt
-RUN pip install Pillow==6.2.2
+RUN pip install Pillow==9.3.0
 RUN rm /notebooks/requirements.txt
 
 EXPOSE 8888
